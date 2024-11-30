@@ -3,6 +3,7 @@ package Arrays;
 public class BinarySearch {
 
     public static int Binary(int[] array, int key){
+
         for (int start=0, end=array.length-1; start<=end;){
             int mid = (start+end)/2;
 

@@ -12,9 +12,10 @@ public class LinearSearch {
 
 
     public static void main(String[] args) {
-        int[] number={1,2,3,5,10,1,5,7,3,8,9,55};
-        int key=1;
+        int[] number={1,2,3,5,10,1,5,7,3,8,9,55}; // 0,1,2,3,4,5,6,7,8,9,10,11
+        int key=10;
         int data= update(number, key);
+
         if (data==-1){
             System.out.println("no data found");
         }else {

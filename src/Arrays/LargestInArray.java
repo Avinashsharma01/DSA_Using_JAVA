@@ -4,6 +4,8 @@ public class LargestInArray {
     public static int Largest(int[] n){
         int largest =Integer.MIN_VALUE;
         int smallest = Integer.MAX_VALUE;
+
+
         for (int i=0; i<n.length; i++){
             if (largest < n[i]){
                 largest=n[i];
