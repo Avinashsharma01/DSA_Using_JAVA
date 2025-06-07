@@ -7,7 +7,7 @@ public class PrimeNumber {
         }
         //for (int i = 2; i <= Math.sqrt(n); i++)
 
-        for (int i=2; i*i<=n; i++){
+        for (int i=2; i*i<=n; i++){  // 2 4, 9 ,16, 25
             if (n%i==0){
                 return false;
             }
@@ -51,6 +51,14 @@ public class PrimeNumber {
             }
         }
     }
+
+    public static void PrimeNumberBetween(int start, int end){
+       for (int num = start; num<=end; num++){
+           if (CheckPrime(num)){
+               System.out.println(num + " is prime number");
+           }
+       }
+    }
     public static void main(String[] args) {
         int n=47;
         if (CheckPrime(n)){
@@ -62,5 +70,6 @@ public class PrimeNumber {
         System.out.println(Math.sqrt(5.0)); // testing of sqrt
 
         PrimeINrange(10);
+        PrimeNumberBetween(10,50);
     }
 }

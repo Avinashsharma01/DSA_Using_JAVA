@@ -1,26 +1,38 @@
 package Sorting;
 
 public class BubbleSort {
+    public static void bubbleSort(int[] arr){
 
-    public static void bubbleSort(int[] array){
-        for(int turn=0; turn<=array.length-1; turn++){
-            for (int j=0; j<array.length-1-turn; j++){
-                if (array[j] > array[j+1]) {
-                    int temp;
-                    temp=array[j];
-                    array[j]=array[j+1];
-                    array[j+1]=temp;
+        boolean swap;
+        for (int i=0; i<arr.length-1; i++){
+            swap=false;
+            for (int j=0; j<arr.length-1-i; j++ ){
+                if (arr[j]> arr[j+1]){
+                    int temp = arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                    swap=true;
                 }
             }
+            if (!swap) return; // if array is sorted then return and stop the loop
         }
     }
-    public static void main(String[] args) {
-        int[] arr = {4,6,1,8,2,9,4,2,6,5,34567};
-
-        bubbleSort(arr);
-
-        for (int i : arr){
-            System.out.println(i);
+    // method one of print an array
+    public static void PrintArr(int[] a){
+        for (int num: a){
+            System.out.println(num+ " ");
         }
+    }
+    // method two of print an array
+    public static void PrintH(int[] b){
+        for (int i=0;  i<b.length; i++){
+            System.out.println(b[i]+ " ");
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] myarray= {1,3,2,4,6,5};
+        bubbleSort(myarray);
+        PrintH(myarray);
     }
 }
