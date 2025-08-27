@@ -1,3 +1,7 @@
+// Problem: Demonstrates basic array usage and iteration in Java
+// This example initializes an array and prints a message for each element except the last, then prints the array length.
+// Useful for understanding array length and for-loop usage.
+
 package Arrays;
 
 public class ArrayP {

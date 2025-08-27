@@ -6,8 +6,17 @@ public class RecursionPractice {
 //        Print_Numbers_from_N_to_1(5);
 //        int fact = Factorial_of_a_Number(5);
 //        System.out.println(fact);
-        int sum = Sum_of_First_N_Natural_Numbers(5);
-        System.out.println(sum);
+//        int sum = Sum_of_First_N_Natural_Numbers(5);
+//        System.out.println(sum);
+
+//        SumOfNDigitWithoutRec(12345);
+
+//        int sum =SumOfNDigit(123456789);
+//        System.out.println(sum);
+
+        int product =productOfDigit(12345);
+        System.out.println(product);
+
     }
 
 
@@ -51,4 +60,31 @@ public class RecursionPractice {
 //    }
 
 
+    // sum of n number without Recursion
+    public static void SumOfNDigitWithoutRec(int n){
+        int sum=0;
+        while (n > 0){
+            int digit = n % 10;
+            sum+=digit;
+            n=n/10;
+        }
+        System.out.println(sum);
+    }
+
+    public static int SumOfNDigit(int n){
+        if(n==0){
+            return 0;
+        }
+        int digit = n%10;
+        n=n/10;
+        return digit + SumOfNDigit(n);
+//        return (n%10) + SumOfNDigit(n/10);
+    }
+
+    public static int productOfDigit(int n){
+        if (n==0)
+            return 1;
+
+        return (n%10) * productOfDigit(n/10);
+    }
 }

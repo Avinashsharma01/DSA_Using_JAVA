@@ -1,4 +1,4 @@
-package Java_basic.Experiment_1;
+package Java_basic;
 
 public class index {
     public static void main(String[] args) {

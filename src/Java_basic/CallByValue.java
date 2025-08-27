@@ -1,4 +1,4 @@
-package Java_basic.Experiment_1;
+package Java_basic;
 
 public class CallByValue {
     public static void change(int a){

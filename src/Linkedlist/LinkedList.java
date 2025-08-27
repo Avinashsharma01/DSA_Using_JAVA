@@ -3,7 +3,7 @@ package Linkedlist;
 public class LinkedList {
 
     // Node class
-    class Node{
+    static class Node{
         int data;
         Node next;
 
@@ -43,12 +43,10 @@ public class LinkedList {
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
-        list.add(10);
-        list.add(20);
-        list.add(30);
-        list.add(40);
-        list.add(50);
-        list.add(60);
+
+        for(int i=1; i<=10; i++){
+            list.add(i);
+        }
 
         list.printList();
 
