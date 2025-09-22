@@ -18,6 +18,8 @@ public class BinamialCofficient {
         int total = a/(b*c);
         return total;
     }
+
+
     public static void main(String[] args) {
        int ncr=  NCR(3,2);
         System.out.println(ncr);

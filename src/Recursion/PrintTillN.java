@@ -1,155 +1,104 @@
+// Problem: Collection of Basic Recursive Functions
+// Description: Demonstrates various fundamental recursive algorithms and patterns
+// Algorithms: Number printing, sum calculation, factorial, digit operations
+// Time Complexity: O(n) for most functions - linear recursion
+// Space Complexity: O(n) - recursion stack depth
+// Educational: Shows different recursive patterns (pre-order vs post-order processing)
+
 package Recursion;
 
 public class PrintTillN {
     public static void main(String[] args) {
-//        PrintNincrement(10);
-//        PrintNdecriment(5);
-//        PrintName(10);
-//        int sum =SumOfN(5);
-//        System.out.println(sum);
-//        int fact = Fact(5);
-//        System.out.println(fact);
-        // Calculate sum of digits of 12345
-//        int sum= SumOfDigit(12345);
-//        System.out.println(sum);
-        int product = ProductOfDigit(22222);
-        System.out.println(product);
+        // Uncomment to test different recursive functions
+        PrintNincrement(10);     // Print 1 to 10 in ascending order
+        PrintNdecriment(5);      // Print 5 to 1 in descending order
+        PrintName(3);            // Print name with numbers 3 times
+
+        int sum = SumOfN(5);     // Calculate sum 1+2+3+4+5 = 15
+        System.out.println("Sum of first 5 numbers: " + sum);
+
+        int fact = Fact(5);      // Calculate 5! = 120
+        System.out.println("Factorial of 5: " + fact);
+
+        int digitSum = SumOfDigit(12345);    // Sum of digits: 1+2+3+4+5 = 15
+        System.out.println("Sum of digits in 12345: " + digitSum);
+
+        int digitProduct = ProductOfDigit(234);  // Product of digits: 2×3×4 = 24
+        System.out.println("Product of digits in 234: " + digitProduct);
     }
 
-    /**
-     * Prints numbers from 1 to n in ascending order using recursion
-     * @param n The maximum number to print
-     */
+    // Prints numbers from 1 to n in ascending order using recursion
+    // Pattern: Post-order processing (recurse first, then process)
     public static void PrintNincrement(int n){
         if (n==0){
-            // Base case: stop recursion when n reaches 0
-            return;
+            return;  // Base case: stop when n reaches 0
         }
 
-        // First make recursive call, then print (for ascending order)
-        PrintNincrement(n-1);
-        System.out.println(n);
+        PrintNincrement(n-1);  // First recurse to smaller numbers
+        System.out.println(n); // Then print current number (ascending order)
     }
 
-    /**
-     * Prints numbers from n to 1 in descending order using recursion
-     * @param n The starting number
-     */
+    // Prints numbers from n to 1 in descending order using recursion
+    // Pattern: Pre-order processing (process first, then recurse)
     public static void PrintNdecriment(int n){
         if (n==0){
-            // Base case: stop recursion when n reaches 0
-            return;
+            return;  // Base case: stop when n reaches 0
         }
 
-        // First print, then make recursive call (for descending order)
-        System.out.println(n);
-        PrintNdecriment(n-1);
+        System.out.print(n+" ");  // First print current number
+        PrintNdecriment(n-1);     // Then recurse to smaller numbers (descending order)
     }
 
-    /**
-     * Prints the name "Avinash Sharma" n times with number prefix
-     * @param n Number of times to print the name
-     */
+    // Prints a name n times with sequential numbering
+    // Demonstrates string printing with recursion
     public static void PrintName(int n){
         if (n==0){
-            // Base case: stop recursion when n reaches 0
-            return;
+            return;  // Base case: stop when n reaches 0
         }
 
-        // Recursive call first, then print name with number
-        PrintName(n-1);
-        System.out.print(n+ " ");
-        System.out.println("Avinash Sharma");
+        PrintName(n-1);  // Recurse first for proper numbering
+        System.out.println(n + " Avinash Sharma");  // Print with current number
     }
 
-    /**
-     * Calculates sum of first n natural numbers using recursion
-     * @param n The number up to which sum is calculated
-     * @return The sum of numbers from 1 to n
-     */
+    // Calculates sum of first n natural numbers using recursion
+    // Mathematical formula: Sum(n) = n + Sum(n-1), with Sum(0) = 0
+    // Alternative: Sum = n×(n+1)/2 (iterative formula)
     public static int SumOfN(int n){
         if(n==0){
-            // Base case: sum of 0 numbers is 0
-            return 0;
+            return 0;  // Base case: sum of 0 numbers is 0
         }
 
-        // Add current number to sum of previous numbers
-        return n+SumOfN(n-1);
+        return n + SumOfN(n-1);  // Add current number to sum of previous numbers
     }
 
-    /**
-     * Calculates factorial of n using recursion
-     * @param n The number whose factorial is calculated
-     * @return The factorial of n
-     */
+    // Calculates factorial of n using recursion
+    // Mathematical formula: n! = n × (n-1)!, with 0! = 1! = 1
     public static int Fact(int n){
         if (n == 0 || n == 1) {
-            // Base case: factorial of 0 or 1 is 1
-            return 1;
-        }else {
-            // Multiply current number with factorial of (n-1)
-            return n*Fact(n-1);
+            return 1;  // Base case: 0! = 1! = 1
+        } else {
+            return n * Fact(n-1);  // n! = n × (n-1)!
         }
     }
 
-    /**
-     * Calculates sum of individual digits in a number using recursion
-     * @param n The number whose digits are to be summed
-     * @return The sum of all digits in the number
-     */
+    // Calculates sum of individual digits in a number using recursion
+    // Algorithm: Extract last digit (n%10), add to sum of remaining digits (n/10)
     public static int SumOfDigit(int n){
-        if(n==0){
-            // Base case: no more digits to sum
-            return 0;
+        if(n == 0){
+            return 0;  // Base case: no more digits to process
         }
-        // Add last digit (n%10) to sum of remaining digits
-        return (n%10) + SumOfDigit(n/10);
+
+        return (n % 10) + SumOfDigit(n / 10);  // Last digit + sum of remaining digits
     }
 
-
-    /**
-     * Calculates product of individual digits in a number using recursion
-     * @param n The number whose digits are to be produced
-     * @return The product of all digits in the number
-     */
+    // Calculates product of individual digits in a number using recursion
+    // Algorithm: Extract last digit (n%10), multiply with product of remaining digits (n/10)
     public static int ProductOfDigit(int n){
-        if(n==0){
-            // Base case: no more digits to Product
-            return 1;
+        if(n == 0){
+            return 1;  // Base case: product identity element
         }
-        // Add last digit (n%10) to Product of remaining digits
-        return (n%10) * ProductOfDigit(n/10);
+
+        return (n % 10) * ProductOfDigit(n / 10);  // Last digit × product of remaining digits
     }
-
-
-    //Pre-Increment and Post-Increment Concept
-    public static void PreIncrement(int n){
-        if(n==0){
-            return;
-        }
-        System.out.println(n);
-        PreIncrement(--n);
-    }
-
-//    Reverse a number
-
-    public static void ReverseN(int n){
-        if(n==0){
-            return;
-        }
-        int reverse=0;
-        System.out.println(n);
-
-        reverse = reverse*10 + (n%10) + (n/10);
-    }
-
-
-
-
-
-
-
-
-
 
 }
