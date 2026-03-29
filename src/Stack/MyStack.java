@@ -5,6 +5,10 @@ import java.util.Stack;
 public class MyStack {
 
     public static void main(String[] args) {
+
+    }
+
+    private static Stack<Integer> getIntegers() {
         Stack<Integer> stack = new Stack<>();
 //        stack.add(10);
 //        stack.add(100);
@@ -26,21 +30,6 @@ public class MyStack {
         stack.push(50);
         stack.push(60);
         stack.push(70);
-
-        System.out.println("Stack: " + stack);
-
-        // Peek (see the top element without removing it)
-        System.out.println("Top element: " + stack.peek());
-
-        // Pop elements
-        System.out.println("Popped: " + stack.pop());
-        System.out.println("Stack after pop: " + stack);
-
-        // Check if stack is empty
-        System.out.println("Is stack empty? " + stack.isEmpty());
-
-        // Search (position from top, 1-based index)
-        System.out.println("Position of 10 from top: " + stack.search(10));
-
+        return stack;
     }
 }

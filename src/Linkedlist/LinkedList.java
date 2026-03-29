@@ -23,6 +23,7 @@ public class LinkedList {
             head=newNode;
             return;
         }
+
         Node current = head;
         while (current.next != null){
             current=current.next;

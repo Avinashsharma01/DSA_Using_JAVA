@@ -6,7 +6,7 @@ public class DynamicStackFromScratch {
     int ptr =-1;
 
     public DynamicStackFromScratch() {
-        this(DEFAULT_SIZE);
+        this(DEFAULT_SIZE); // this will pass data to that constructor that take an input
     }
 
     public DynamicStackFromScratch(int size) {
