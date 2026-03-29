@@ -30,9 +30,18 @@ public class Factorial {
         System.out.println(fact);
     }
 
+    public static int factR(int n){
+        if (n==1){
+            return 1;
+        }
+
+        return  n * factR(n-1);
+    }
+
     public static void main(String[] args) {
         factUsingWhile(5);
         factUsingFor(10);
         factUsingDoWhile(5);
+        System.out.println(factR(5));
     }
 }

@@ -13,6 +13,13 @@ public class CustomQueue {
         this.arr = new int[size];
     }
 
+    /**
+     * Inserts an element into the queue.
+     * This implementation features a dynamic array behavior: if the queue is full,
+     * it doubles the underlying array capacity before inserting the new element.
+     *
+     * Time Complexity: O(1) amortized. When resizing happens, it takes O(N).
+     */
     public boolean insert(int item) throws Exception{
 //        if(isFull()){
 //            throw new Exception("Queue is full");
@@ -29,6 +36,13 @@ public class CustomQueue {
         return true;
     }
 
+    /**
+     * Removes and returns the element at the front of the queue.
+     * Since this is an array-based implementation where elements aren't shifted dynamically on insert,
+     * removing the first element requires shifting all remaining elements to the left by one position.
+     *
+     * Time Complexity: O(N) because of the shifting operation.
+     */
     public int remove() throws Exception{
         if(isEmpty()){
             throw new Exception("Can not remove from a empty queue");
@@ -43,6 +57,11 @@ public class CustomQueue {
         return removed;
     }
 
+    /**
+     * Peeks at the front element of the queue without removing it.
+     *
+     * Time Complexity: O(1)
+     */
     public int front() throws Exception{
         if (isEmpty()){
             throw new Exception("Queue is empty");
