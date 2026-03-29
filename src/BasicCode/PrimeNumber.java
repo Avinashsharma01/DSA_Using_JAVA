@@ -47,7 +47,7 @@ public class PrimeNumber {
     public static void PrimeINrange(int n){
         for (int i=2; i<=n; i++){
             if (CheckPrime(i)){
-                System.out.println(i+ " is prime number");
+                System.out.println(i+ " is prime number Avi");
             }
         }
     }
